@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<title>ILÉ ASÉ ALAKETÚ OMO LOGÚN-EDÉ</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Oswald"
+  }
+
+  body {
+    font-family: "Open Sans"
+  }
+
+
+
+
+
+  embed#video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+  }
+</style>
+
+
+
+<body class="w3-light-grey">
+
+  <!-- Navigation bar with social media icons -->
+  <div class="w3-bar w3-black w3-hide-small">
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-facebook-official"></i></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-instagram"></i></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-snapchat"></i></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-flickr"></i></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-twitter"></i></a>
+    <a href="#" class="w3-bar-item w3-button"><i class="fa fa-linkedin"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
+  </div>
+
+
+  <!-- Icon Bar (Sidebar - hidden on small screens) -->
+  <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+    <!-- Avatar image in top left corner -->
+    <img src="imagens/logo.jpg" style="width:100%">
+    <a href="https://www.facebook.com/Comunidade-News-356435094454540/" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-facebook-official w3-xxlarge"></i>
+      <p>ILÉ ASÉ ALAKETÚ OMO LOGUN-EDÉ - Comunidade News</p>
+    </a>
+
+    <img src="imagens/baba_1.jpg" style="width:100%;">
+    <a href="https://www.facebook.com/nivaldo.moura.54" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-facebook-official w3-xxlarge"></i>
+      <p>BABALORIXÁ NIVALDO DE LOGUN-EDÉ</p>
+    </a>
+
+    
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+
+//https://www.w3schools.com/w3css/tryw3css_templates_dark_portfolio.htm
+
+  /*
+function myMap() {
+  //https://developers.google.com/maps/documentation/javascript/examples/map-latlng-literal
+var mapProp= {
+  center:new google.maps.LatLng(-23.497878,-47.5419287),
+  zoom:5,
+};
+var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+}
+*/
+
+
+  // In this example, we center the map, and add a marker, using a LatLng object
+      // literal instead of a google.maps.LatLng object. LatLng object literals are
+      // a convenient way to add a LatLng coordinate and, in most cases, can be used
+      // in place of a google.maps.LatLng object.
+
+      //https://developers.google.com/maps/documentation/javascript/examples/map-latlng-literal
+      var map;
+
+      function initialize() {
+        var mapOptions = {
+          zoom: 8,
+          center: {lat: -23.498160, lng: -47.538730}
+        };
+        map = new google.maps.Map(document.getElementById('googleMap'),
+            mapOptions);
+
+        var marker = new google.maps.Marker({
+          // The below line is equivalent to writing:
+          // position: new google.maps.LatLng(-34.397, 150.644)
+          position: {lat: -23.498160, lng: -47.538730},
+          
+          map: map
+        });
+
+        // You can use a LatLng literal in place of a google.maps.LatLng object when
+        // creating the Marker object. Once the Marker object is instantiated, its
+        // position will be available as a google.maps.LatLng object. In this case,
+        // we retrieve the marker's position using the
+        // google.maps.LatLng.getPosition() method.
+        var infowindow = new google.maps.InfoWindow({
+          content: '<p>Marker Location:' + marker.getPosition() + '</p>'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+</script>
+
+<script>
+//https://www.w3schools.com/graphics/google_maps_intro.asp
+//https://developers.google.com/maps/documentation/javascript/get-api-key
+//https://developers.google.com/maps/documentation/javascript/get-api-key#key-restrictions
+//https://console.cloud.google.com/google/maps-apis/api-list?folder=&organizationId=&orgonly=true&project=notional-portal-210011
+
+/*
+let apiKEY;
+
+
+//https://stackoverflow.com/questions/14446447/how-to-read-a-local-text-file/14446538
+function getGoogleApiKey(){       //this will read file and send information to other function
+       var xmlhttp;
+       var docGoogleApiKey= 'C:/Users/Emm/Documents/googleAPI.txt';
+
+       if (window.XMLHttpRequest) {
+           xmlhttp = new XMLHttpRequest();               
+       }           
+       else {               
+           xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");               
+       }
+
+       xmlhttp.onreadystatechange = function () {               
+           if (xmlhttp.readyState == 4) {                   
+             apiKEY = xmlhttp.responseText;  
+             return apiKEY;  
+           }               
+       }
+
+       xmlhttp.open("GET", docGoogleApiKey, true);
+       xmlhttp.send();    
+}
+
+if(apiKEY)
+apiKEY = getGoogleApiKey();
+
+
+let urlGoogleMapsAPI = "https://maps.googleapis.com/maps/api/js?key="+ apiKEY +"&callback=myMap";
+
+console.log('Valor da chave do google lido do arquivo: '+apiKey);
+*/
+
+
+</script>
+<!--A CHAVE DO GOOGLE API DEVERIA SER LIDA DO ARQUIVO PARA NÃO SER EXPOSTA NO GITHUB
+https://console.cloud.google.com/apis/credentials/consent?project=notional-portal-210011&orgonly=true
+-->
+<script src="https://maps.googleapis.com/maps/api/js?key=googleApiKey&callback=initialize">
+</script>
+
+    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-home w3-xxlarge"></i>
+      <p>HOME</p>
+    </a>
+
+
+
+    <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-user w3-xxlarge"></i>
+      <p>ABOUT</p>
+    </a>
+    <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-eye w3-xxlarge"></i>
+      <p>PHOTOS</p>
+    </a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-envelope w3-xxlarge"></i>
+      <p>CONTACT</p>
+    </a>
+  </nav>
+
+
+  <!-- Icon Bar (Sidebar - hidden on small screens) 
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center 
+navbar-nav mr-auto" >
+    <img src="imagens/baba_1.jpg" href="https://www.facebook.com/nivaldo.moura.54"
+    style="width:100%">
+    <a  href="https://www.facebook.com/nivaldo.moura.54"
+    class="w3-bar-item w3-button w3-padding-large w3-black">
+      <i class="fa fa-home w3-xxlarge"></i>
+      <p>Babá Nivaldo de Logun-Edé</p>
+</a>
+</nav>
+
+  -->
+
+  <div style="width: 100%; height: 100%">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <label class="w3-center w3-padding-large  w3-xlarge w3-wide w3-animate-opacity">
+        <h1 class="w3-xxxlarge"><b>ILÉ ASÉ ALAKETÚ OMO LOGÚN-EDÉ</b></h1>
+        <h3>Babalorixá Nivaldo de Logun-Edé</h3>
+      </label>
+    </div>
+    <!--ALTERA A URL DO YOUTUBE PARA IMPEDIR ERRO X-FRAME-OPTIONS SAME ORIGIN
+          
+          https://stackoverflow.com/questions/20498831/refused-to-display-in-a-frame-because-it-set-x-frame-options-to-sameorigin
+          
+          Solução:  replace "watch?v=" by "v/" and it will work
+          -->
+    <div><embed id=video 
+   
+      src="https://www.youtube.com/v/xL6jyxJNPaI&index=6&loop=1&autoplay=1&controls=0&showinfo=0&autohide=1">
+  
+    </embed>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
